@@ -1,0 +1,54 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Python environments and packaging
+.venv/
+venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*~
+
+# Generated Wanted / Unwanted visualizations
+wanted_unwanted_interactive.html
+wanted-unwanted-interactive.html
+wanted_unwanted_combined.png
+wanted-unwanted-combined.png
+High resoltion.png
+High resolution.png
+
