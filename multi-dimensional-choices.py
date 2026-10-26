@@ -6,13 +6,13 @@ crimson in both halves; candidates retained by the wanted stage are gold.
 
 Examples
 --------
-Run with the default 100 candidates and create an interactive HTML file::
+Run with the default 10 candidates and create an interactive HTML file::
 
-    python "multi-dimensional choices.py"
+    python multi-dimensional-choices.py
 
 Change the number of candidates and keep only the HTML output::
 
-    python "multi-dimensional choices.py" --num-elements 150 --no-show
+    python multi-dimensional-choices.py --num-elements 150 --no-show
 """
 
 from __future__ import annotations

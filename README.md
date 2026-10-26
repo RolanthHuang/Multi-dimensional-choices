@@ -161,7 +161,7 @@ python "multi-dimensional-choices.py"
 
 預設：
 
-- `num_elements = 100`
+- `num_elements = 10`
 - `columns = 10`
 - 產生 `wanted_unwanted_interactive.html`
 - 開啟 Matplotlib 3D 圖形
@@ -257,7 +257,7 @@ demo["write_interactive_html"](
 
 | 參數 | 預設值 | 說明 |
 |---|---:|---|
-| `--num-elements` | `100` | 候選項數量 |
+| `--num-elements` | `10` | 候選項數量 |
 | `--columns` | `10` | 3D 候選項網格的欄數 |
 | `--seed` | 無 | 固定隨機資料與並列選擇結果 |
 | `--html-output` | `wanted_unwanted_interactive.html` | HTML 輸出位置 |
