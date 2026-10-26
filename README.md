@@ -1,3 +1,7 @@
+## 🌐 Interactive Demo
+
+[▶ Open Interactive 3D Visualization](https://rolanthhuang.github.io/Multi-dimensional-choices/wanted-unwanted-interactive.html)
+
 # Wanted / Unwanted 多維度離散選擇機制
 
 這個專案示範如何在一組相同的離散候選項目中，同時考慮「想要程度」與「不想要的風險」，最後找出兼顧偏好與低風險的候選項。
