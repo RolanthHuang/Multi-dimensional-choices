@@ -1,8 +1,15 @@
-## 🌐 Interactive Demo
-
-[▶ Open Interactive 3D Visualization](https://rolanthhuang.github.io/Multi-dimensional-choices/wanted-unwanted-interactive.html)
-
 # Wanted / Unwanted 多維度離散選擇機制
+
+### [▶ 開啟互動 3D 展示 / Open the interactive 3D demo](https://rolanthhuang.github.io/Multi-dimensional-choices/)
+
+<a href="https://rolanthhuang.github.io/Multi-dimensional-choices/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="preview-dark.png">
+    <img src="preview-light.png" alt="互動 3D 圖：wanted 往玻璃平面上方長、unwanted 風險往下沉，100 個候選項中選出 #11" width="100%">
+  </picture>
+</a>
+
+可拖曳旋轉、滾輪縮放，一鍵切換 5 / 12 / 36 / 100 / 400 個候選項（12 與 100 就是原本兩個 HTML 的資料），也能重新抽樣、切換視角、中文 / English 與淺色 / 深色。
 
 這個專案示範如何在一組相同的離散候選項目中，同時考慮「想要程度」與「不想要的風險」，最後找出兼顧偏好與低風險的候選項。
 
@@ -95,6 +102,8 @@ fetch
 
 `fetch` 的 crimson 優先權最高。如果 fetch 同時屬於 wanted 高分群，兩側仍會顯示為 crimson。
 
+網頁版沿用同樣的三種顏色，色階略為調整（`#d21f45` / `#cc9f1a` / `#30a08c`，深色主題另有一組），讓三者在色覺差異下也能分辨。
+
 ## 3D 圖形設計
 
 Wanted 與 Unwanted 共用同一個 `z=0` 平面：
@@ -103,6 +112,29 @@ Wanted 與 Unwanted 共用同一個 `z=0` 平面：
 - Unwanted risk 從 `z=0` 朝下。
 - 相同候選項在上下兩側使用相同的 `x, y` 位置。
 - 因此可以直接看到一個候選項的 wanted 高度與 unwanted 深度。
+
+### 網頁版（`index.html`）
+
+[線上版](https://rolanthhuang.github.io/Multi-dimensional-choices/)用 Three.js 繪製，打開即用，不需安裝：
+
+- `z=0` 平面是一片玻璃板；圓角柱體、陰影與往下漸深的色調讓上下兩個維度更立體。
+- 一片半透明的金色平面標出 wanted 門檻，穿出這片平面的柱子就是通過第一階段的候選項。
+- 載入時依序播放兩個階段：柱子長出 → 門檻平面升起、通過者變金色 → fetch 變紅色；「重播」可再看一次。
+- 候選項數量可切換 5 / 12 / 36 / 100 / 400，「重新抽樣」會換一個 seed。
+- 斜視 / 側視 / 俯視 / 仰視四種視角；斜視會自動挑選看得到 fetch 的方向。
+- 游標移到柱子上可看 wanted、risk、與理想點的距離和排名；「顯示全部候選項」列出完整表格。
+- 網址會記錄目前狀態，例如 `?n=36&seed=15`，可直接分享。
+
+網頁版的演算法與亂數完整移植自 Python 版（MT19937 與 `random.Random` 相同的整數 seed、`randint` 與 `choice`），同樣的 `--num-elements` 與 `--seed` 會得到同一組資料、同一個門檻與同一個 fetch。原本兩個 HTML 的對應：
+
+| 原檔案 | 網頁版 | Python |
+|---|---|---|
+| `wanted-unwanted-demo.html` | `?n=12` | `--num-elements 12 --columns 4 --seed 7` |
+| `wanted-unwanted-interactive.html` | `?n=100` | `--num-elements 100 --columns 10 --seed 42` |
+
+舊的兩個網址會自動轉到新頁面。
+
+### Python 版
 
 Matplotlib 版本適合產生靜態圖片；Plotly HTML 版本可以：
 
